@@ -19,6 +19,22 @@ function searchPokemon() {
       rawPokeName.charAt(0).toUpperCase() + rawPokeName.slice(1);
     $("#pokemonName").text("Pokemon Name : " + pokeNameDisplay);
 
+    // display the Japanese name
+
+    var pokeURLJa =
+      "https://pokeapi.co/api/v2/pokemon-species/" + userInput + "/";
+
+    $.ajax({
+      url: pokeURLJa,
+      method: "GET",
+    }).then(function (response) {
+      var pokemonNameJa = response.names[0].name;
+      console.log(pokeURLJa);
+      console.log(pokemonNameJa);
+
+      $("#pokemonNameJa").text("Japanese Name : " + pokemonNameJa);
+    });
+
     // display type(s)
     $("#pokemonType").empty();
 
