@@ -3,7 +3,6 @@ var userInput = "";
 function searchPokemon() {
   var userInput = Number($("#textInput").val().trim());
   var pokeURL = "https://pokeapi.co/api/v2/pokemon/" + userInput + "/";
-  console.log(pokeURL);
 
   $("#pokemonNumber").text(userInput);
 
@@ -66,32 +65,33 @@ function searchPokemon() {
       userInput +
       ".svg";
 
-    $(".icon").empty();
+    $(".imageSpace").empty();
 
     var img = $("<img>");
     img.attr("src", frontImageURL);
     img.addClass("pokeIcon");
-    $("#default-front-image").append(img);
+    $(".imageSpace").append(img);
 
     var img2 = $("<img>");
     img2.attr("src", shinyImageURL);
     img2.addClass("pokeIcon");
-    $("#default-front-image").append(img2);
+    $(".imageSpace").append(img2);
 
     var img3 = $("<img>");
     img3.attr("src", officialImageURL);
     img3.addClass("pokeIcon");
-    $("#default-front-image").append(img3);
+    $(".imageSpace").append(img3);
 
     var img4 = $("<img>");
     img4.attr("src", dreamworldImageURL);
     img4.addClass("pokeIcon");
-    $("#default-front-image").append(img4);
+    $(".imageSpace").append(img4);
   });
 }
 
 $("#submit").on("click", function (event) {
   event.preventDefault();
+
   var userInput = Number($("#textInput").val().trim());
 
   console.log(userInput);
