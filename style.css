@@ -3,6 +3,13 @@ body {
   padding: 0;
 }
 
+main {
+  width: 70vw;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
 #header {
   display: flex;
   justify-content: center;
@@ -13,17 +20,42 @@ body {
 }
 
 #submit {
-  margin-left: 10px;
   height: 60px;
+  width: 100%;
+}
+
+.submitDiv {
+  text-align: center;
 }
 
 #textInput {
-  width: 500px;
   height: 60px;
+  width: 100%;
+  margin: auto;
 }
 
-.form-inline {
-  margin-top: 50px;
+.resultHeading {
+  border-bottom: 2px black solid;
+}
+
+.textDiv {
+  margin-bottom: 10px;
+}
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  white-space: pre-line;
+  position: relative;
+}
+
+.form-group {
+  margin: 30px 0px;
   display: flex;
   justify-content: center;
+}
+
+.pokeIcon {
+  width: 200px;
+  height: auto;
+  margin: 5px;
 }
