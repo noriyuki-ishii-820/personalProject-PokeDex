@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  color: white;
+  background-color: grey;
+}
+
+#submit {
+  margin-left: 10px;
+  height: 60px;
+}
+
+#textInput {
+  width: 500px;
+  height: 60px;
+}
+
+.form-inline {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
