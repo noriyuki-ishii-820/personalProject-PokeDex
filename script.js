@@ -14,7 +14,14 @@ function searchPokemon() {
 
     // display the name
 
-    var rawPokeName = response.forms[0].name;
+    if (response.forms.length === 1) {
+      var rawPokeName = response.forms[0].name;
+    } else {
+      var rawPokeName = response.name;
+    }
+
+    console.log(rawPokeName);
+
     var pokeNameDisplay =
       rawPokeName.charAt(0).toUpperCase() + rawPokeName.slice(1);
     $("#pokemonName").text("Pokemon Name : " + pokeNameDisplay);
@@ -32,7 +39,9 @@ function searchPokemon() {
       console.log(pokeURLJa);
       console.log(pokemonNameJa);
 
-      $("#pokemonNameJa").text("Japanese Name : " + pokemonNameJa);
+      if (pokemonNameJa === true) {
+        $("#pokemonNameJa").text("Japanese Name : " + pokemonNameJa);
+      }
     });
 
     // display type(s)
@@ -81,6 +90,11 @@ function searchPokemon() {
       userInput +
       ".svg";
 
+    var genVIIIimageURL =
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-viii/icons/" +
+      userInput +
+      ".png";
+
     $(".imageSpace").empty();
 
     var img = $("<img>");
@@ -102,6 +116,11 @@ function searchPokemon() {
     img4.attr("src", dreamworldImageURL);
     img4.addClass("pokeIcon");
     $(".imageSpace").append(img4);
+
+    var img5 = $("<img>");
+    img5.attr("src", genVIIIimageURL);
+    img5.addClass("pokeIcon");
+    $(".imageSpace").append(img5);
   });
 }
 
@@ -109,8 +128,6 @@ $("#submit").on("click", function (event) {
   event.preventDefault();
 
   var userInput = Number($("#textInput").val().trim());
-
-  console.log(userInput);
 
   if (
     parseInt(userInput) > 0 &&
