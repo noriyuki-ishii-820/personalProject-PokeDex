@@ -28,6 +28,7 @@ function searchPokemon() {
 
     // display the Japanese name
 
+    $("#pokemonNameJa").empty();
     var pokeURLJa =
       "https://pokeapi.co/api/v2/pokemon-species/" + userInput + "/";
 
@@ -39,8 +40,10 @@ function searchPokemon() {
       console.log(pokeURLJa);
       console.log(pokemonNameJa);
 
-      if (pokemonNameJa === true) {
+      if (pokemonNameJa) {
         $("#pokemonNameJa").text("Japanese Name : " + pokemonNameJa);
+      } else {
+        $("#pokemonNameJa").remove();
       }
     });
 
@@ -99,26 +102,31 @@ function searchPokemon() {
 
     var img = $("<img>");
     img.attr("src", frontImageURL);
+    img.attr("alt", "");
     img.addClass("pokeIcon");
     $(".imageSpace").append(img);
 
     var img2 = $("<img>");
     img2.attr("src", shinyImageURL);
+    img2.attr("alt", "");
     img2.addClass("pokeIcon");
     $(".imageSpace").append(img2);
 
     var img3 = $("<img>");
     img3.attr("src", officialImageURL);
+    img3.attr("alt", "");
     img3.addClass("pokeIcon");
     $(".imageSpace").append(img3);
 
     var img4 = $("<img>");
     img4.attr("src", dreamworldImageURL);
+    img4.attr("alt", "");
     img4.addClass("pokeIcon");
     $(".imageSpace").append(img4);
 
     var img5 = $("<img>");
     img5.attr("src", genVIIIimageURL);
+    img5.attr("alt", "");
     img5.addClass("pokeIcon");
     $(".imageSpace").append(img5);
   });
