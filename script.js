@@ -32,6 +32,8 @@ function searchPokemon() {
     var pokeURLJa =
       "https://pokeapi.co/api/v2/pokemon-species/" + userInput + "/";
 
+    console.log(pokeURLJa);
+
     $.ajax({
       url: pokeURLJa,
       method: "GET",
@@ -100,6 +102,12 @@ function searchPokemon() {
 
     $(".imageSpace").empty();
 
+    var img5 = $("<img>");
+    img5.attr("src", genVIIIimageURL);
+    img5.attr("alt", "this image is unavailable for this pokemon yet");
+    img5.addClass("pokeIcon");
+    $(".imageSpace").append(img5);
+
     var img = $("<img>");
     img.attr("src", frontImageURL);
     img.attr("alt", "this image is unavailable for this pokemon yet");
@@ -125,12 +133,6 @@ function searchPokemon() {
     img4.attr("alt", "this image is unavailable for this pokemon yet");
     img4.addClass("pokeIcon");
     $(".imageSpace").append(img4);
-
-    var img5 = $("<img>");
-    img5.attr("src", genVIIIimageURL);
-    img5.attr("alt", "this image is unavailable for this pokemon yet");
-    img5.addClass("pokeIcon");
-    $(".imageSpace").append(img5);
   });
 }
 
