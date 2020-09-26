@@ -1,5 +1,12 @@
 var userInput = "";
 
+function randomValueGenerator() {
+  max = 893;
+  randomValue = Number(Math.floor(Math.random() * Math.floor(max)));
+  console.log(randomValue);
+  return;
+}
+
 function searchPokemon() {
   var userInput = Number($("#textInput").val().trim());
   var pokeURL = "https://pokeapi.co/api/v2/pokemon/" + userInput + "/";
@@ -133,12 +140,31 @@ function searchPokemon() {
     img4.attr("alt", "this image is unavailable for this pokemon yet");
     img4.addClass("pokeIcon");
     $(".imageSpace").append(img4);
+
+    // // you may also like
+
+    // $(".likeResult").html("<h3>You may also like: </h3>");
+
+    // for (i = 0; i < 3; i++) {
+    //   max = 893;
+    //   var randomValue = Math.floor(Math.random() * Math.floor(max));
+    //   var randomPokeURL =
+    //     "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/" +
+    //     randomValue +
+    //     ".png";
+
+    //   var randomImg = $("<img>");
+    //   var img5 = $("<img>");
+    //   randomImg.attr("src", randomPokeURL);
+    //   randomImg.addClass("pokeIcon");
+    //   $(".likeResult").append(randomImg);
+
+    // });
+    //}
   });
 }
 
-$("#submit").on("click", function (event) {
-  event.preventDefault();
-
+function inputValidation() {
   var userInput = Number($("#textInput").val().trim());
 
   if (
@@ -154,4 +180,19 @@ $("#submit").on("click", function (event) {
     $("#textInput").val("");
     return false;
   }
+}
+
+$("#submit").on("click", inputValidation);
+
+$("#random").on("click", function (event) {
+  event.preventDefault();
+  randomValueGenerator();
+
+  console.log(randomValue);
+
+  $("#textInput").val(randomValue);
+
+  inputValidation();
+
+  $("#textInput").val("");
 });
