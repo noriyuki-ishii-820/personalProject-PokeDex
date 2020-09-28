@@ -27,11 +27,12 @@ main {
   height: 60px;
   width: 100%;
   margin: auto;
+  text-align: vertical;
 }
 
 button {
   height: 50px;
-  width: 250px;
+  width: 80%;
   margin-top: 3px;
 }
 
@@ -43,10 +44,9 @@ button {
   margin-bottom: 10px;
 }
 
-::-webkit-input-placeholder {
+input::placeholder {
   /* Chrome/Opera/Safari */
   white-space: pre-line;
-  position: relative;
 }
 
 .form-group {
