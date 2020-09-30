@@ -1,4 +1,5 @@
 # personalProject-PokeDex
 
 
-![](screenshot1.jpg)
+![](screenshot1.png)
+
