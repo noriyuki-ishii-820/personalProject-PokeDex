@@ -20,3 +20,6 @@ Equipped with the Random button, the user can randomly generate the number and v
 As an Pokemon fan,
 I WOULD like to see the pokemon information by the number
 
+# Deployment
+
+https://noriyuki-ishii-820.github.io/personalProject-PokeDex/
