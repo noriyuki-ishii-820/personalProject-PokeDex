@@ -11,14 +11,14 @@ function searchPokemon() {
   var userInput = Number($("#textInput").val().trim());
   var pokeURL = "https://pokeapi.co/api/v2/pokemon/" + userInput + "/";
 
+  console.log(pokeURL);
+
   $("#pokemonNumber").text(userInput);
 
   $.ajax({
     url: pokeURL,
     method: "GET",
   }).then(function (response) {
-    console.log(response);
-
     // display the name
 
     if (response.forms.length === 1) {
@@ -26,8 +26,6 @@ function searchPokemon() {
     } else {
       var rawPokeName = response.name;
     }
-
-    console.log(rawPokeName);
 
     var pokeNameDisplay =
       rawPokeName.charAt(0).toUpperCase() + rawPokeName.slice(1);
@@ -46,8 +44,6 @@ function searchPokemon() {
       method: "GET",
     }).then(function (response) {
       var pokemonNameJa = response.names[0].name;
-      console.log(pokeURLJa);
-      console.log(pokemonNameJa);
 
       if (pokemonNameJa) {
         $("#pokemonNameJa").text("Japanese Name : " + pokemonNameJa);
@@ -85,8 +81,6 @@ function searchPokemon() {
       userInput +
       ".png";
 
-    console.log(frontImageURL);
-
     var shinyImageURL =
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/" +
       userInput +
@@ -111,35 +105,39 @@ function searchPokemon() {
 
     var img5 = $("<img>");
     img5.attr("src", genVIIIimageURL);
-    img5.attr("alt", "this image is unavailable for this pokemon yet");
+    img5.attr("alt", "unavailable");
     img5.addClass("pokeIcon");
     $(".imageSpace").append(img5);
 
     var img = $("<img>");
     img.attr("src", frontImageURL);
-    img.attr("alt", "this image is unavailable for this pokemon yet");
+    img.attr("alt", "unavailable");
     img.addClass("pokeIcon");
     $(".imageSpace").append(img);
 
     var img2 = $("<img>");
     img2.attr("src", shinyImageURL);
-    img2.attr("alt", "this image is unavailable for this pokemon yet");
+    img2.attr("alt", "unavailable");
     img2.addClass("pokeIcon");
     $(".imageSpace").append(img2);
 
-    {
-      var img3 = $("<img>");
-      img3.attr("src", officialImageURL);
-      img3.attr("alt", "this image is unavailable for this pokemon yet");
-      img3.addClass("pokeIcon");
+    var img3 = $("<img>");
+    img3.attr("src", officialImageURL);
+    img3.attr("alt", "unavailable");
+    img3.addClass("pokeIcon");
+
+    if (response.sprites.other["official-artwork"].front_default !== null) {
       $(".imageSpace").append(img3);
     }
 
     var img4 = $("<img>");
     img4.attr("src", dreamworldImageURL);
-    img4.attr("alt", "this image is unavailable for this pokemon yet");
+    img4.attr("alt", "unavailable");
     img4.addClass("pokeIcon");
-    $(".imageSpace").append(img4);
+
+    if (response.sprites.other.dream_world.front_default !== null) {
+      $(".imageSpace").append(img4);
+    }
 
     // // you may also like
 
@@ -187,8 +185,6 @@ $("#submit").on("click", inputValidation);
 $("#random").on("click", function (event) {
   event.preventDefault();
   randomValueGenerator();
-
-  console.log(randomValue);
 
   $("#textInput").val(randomValue);
 
