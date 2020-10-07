@@ -23,3 +23,7 @@ I WOULD like to see the pokemon information by the number
 # Deployment
 
 https://noriyuki-ishii-820.github.io/personalProject-PokeDex/
+
+# License
+
+MIT
